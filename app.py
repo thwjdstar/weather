@@ -2,6 +2,8 @@ import streamlit as st
 
 from app_home import run_home_app
 from app_year import run_year_app
+from app_weather import run_weather_app
+
 
 def main() :
     st.title('연도별 기온정보와 강수량')
@@ -14,6 +16,9 @@ def main() :
         run_home_app()
     elif choice == menu[1] :
         run_year_app()
+    elif choice == menu[2] :
+        run_weather_app()
+    
    
 
 if __name__ == '__main__' :

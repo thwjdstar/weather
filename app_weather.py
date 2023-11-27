@@ -4,10 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sb
 
-def main ():
+def run_weather_app ():
     df = pd.read_csv('./data/statisticsDivision_20231123151658.csv', encoding='euc-kr')
     st.dataframe(df)
-    
+
     st.text('연도별 최고/최저 평균기온 확인하기')
 
     column_list = df.columns [1:]

@@ -31,6 +31,15 @@ def run_year_app():
     data = df[df['일시'].str.contains('2013')]
     st.dataframe(data)
 
+    selected_list = st.multiselect('연도와 원하는 내용 선택', df.columns[1:] ) 
+
+    print(selected_list)
+
+    if len(selected_list) != 0:  #선택된 리스트가 0개인경우 출력 x 
+        st.dataframe(df[selected_list])
+    else:
+        st.text('')
+
 
     # selected_column = st.multiselectbox('컬럼을 선택하세요',column_list)
     # selected_column = '컬럼을 선택하세요',str(column_list)
