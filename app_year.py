@@ -17,29 +17,29 @@ def run_year_app():
 
     st.text('전체 데이터 프레임 확인하기')
 
-    df = pd.read_csv('./data/statisticsDivision_20231123151658.csv', encoding='cp949', sep='\t')
-    st.dataframe(df)
 
-    st.text('기초통계데이터 확인하기')
+    df = pd.read_csv('./data/statisticsDivision_20231123151658.csv', encoding='euc-kr')
+    st.dataframe(df)
 
     if st.checkbox('통계데이터 보기') :
         st.dataframe(df.describe())
     else :
         st.text('')
+    
+    st.text('기초통계데이터 확인하기')
 
-    st.text('최고/최저 데이터 확인하기')
+    data = df[df['일시'].str.contains('2013')]
+    st.dataframe(data)
 
-    column_list = df.columns [:]
 
     # selected_column = st.multiselectbox('컬럼을 선택하세요',column_list)
-    selected_column = ('컬럼을 선택하세요',column_list)
+    # selected_column = '컬럼을 선택하세요',str(column_list)
 
-    language = ['2013', '2014', '2015', '2016', '2017']
+    # st.text(selected_column + '컬럼의 최소값')
+    # st.dataframe (df.loc[ df[selected_column] == df[selected_column].min(), ])
 
-    st.dataframe (df.loc[ df[selected_column] == df[selected_column].min(), ])
-
-    st.text(selected_column + '컬럼의 최대값')
-    st.dataframe (df.loc[ df[selected_column] == df[selected_column].max(), ])
+    # st.text(selected_column + '컬럼의 최대값')
+    # st.dataframe (df.loc[ df[selected_column] == df[selected_column].max(), ])
 
     # st.text(selected_column + '컬럼의 히스토그램')
     
