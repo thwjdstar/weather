@@ -26,7 +26,7 @@ def run_year_app():
     else :
         st.text('')
     
-    st.text('기초통계데이터 확인하기')
+    st.text('기초통계데이터 확인하기') 
 
     data = df[df['일시'].str.contains('2013')]
     st.dataframe(data)
