@@ -33,7 +33,7 @@ def run_year_app():
 
     selected_list = st.multiselect('연도와 원하는 내용 선택', df.columns[1:] ) 
 
-    print(selected_list)
+    print(selected_list[1:])
 
     if len(selected_list) != 0:  #선택된 리스트가 0개인경우 출력 x 
         st.dataframe(df[selected_list])
